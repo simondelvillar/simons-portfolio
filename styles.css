@@ -79,3 +79,14 @@ body {
   from { translate: 0px 0px; }
   to   { translate: var(--dx) var(--dy); }
 }
+
+.github-activity {
+    margin-top: 1rem;
+    opacity: 0.75;
+    max-width: 600px;
+}
+
+.github-activity img {
+    width: 100%;
+    border-radius: 8px;
+}

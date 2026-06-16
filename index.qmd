@@ -36,3 +36,12 @@ This portfolio is a collection of my academic work, personal projects, and inter
 - 🏃 Staying active through sports and recreation
 - 📚 Learning new skills and exploring new ideas
 - Don't forget food!
+
+## Behind the Scenes
+
+Most of this website is built and maintained through Git, GitHub, and Quarto.
+
+<div class="github-activity">
+  <img src="https://ghchart.rshah.org/simondelvillar"
+       alt="GitHub contribution history">
+</div>
