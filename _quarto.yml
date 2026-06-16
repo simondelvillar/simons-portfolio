@@ -8,6 +8,10 @@ website:
       - href: index.qmd
         text: Home
       - projects.qmd
+      - href: learning.qmd
+        text: Learning  
+      - href: favtheorems.qmd
+        text: Favourite Theorems
 
 format:
   html:
