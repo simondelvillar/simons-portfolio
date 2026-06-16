@@ -49,3 +49,20 @@ All of these links direct the user to download a PDF.
 - [Crux Mathematoricum (Canadian Mathematical Society) 5141](../proofs/crux/Problem%205141.pdf)
 - [Crux Mathematoricum (Canadian Mathematical Society) 5418](../proofs/crux/Problem%205418.pdf)
 - [Fibonacci Quarterly B-1383](../proofs/fibonacci/B-1383%20Answer.pdf)
+
+
+
+::: {.curious-corner}
+## Curious Corner 🧐
+
+Most of the proofs in this portfolio were written in [Obsidian](https://obsidian.md/) using LaTeX. After setting up a workflow with templates and note linking, writing mathematics feels almost as fast as writing plain text.
+
+I enjoy experimenting with tools that make learning and communication more effective, and Obsidian has become an important part of how I organize notes, develop proofs, and connect ideas across courses.
+
+### Extensions I Use to Streamline Writing
+
+1. [Obsidian Latex Suite](https://github.com/artisticat1/obsidian-latex-suite)
+2. [Obsidian Pandoc Plugin](https://github.com/OliverBalfour/obsidian-pandoc)
+
+:::
+
