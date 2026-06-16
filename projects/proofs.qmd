@@ -46,3 +46,6 @@ All of these links direct the user to download a PDF.
 
 ### For fun
 - [LaTeX Practice](../proofs/general-practice/Proofs.pdf)
+- [Crux Mathematoricum (Canadian Mathematical Society) 5141](../proofs/crux/Problem%205141.pdf)
+- [Crux Mathematoricum (Canadian Mathematical Society) 5418](../proofs/crux/Problem%205418.pdf)
+- [Fibonacci Quarterly B-1383](../proofs/fibonacci/B-1383%20Answer.pdf)
