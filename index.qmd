@@ -38,3 +38,5 @@ This portfolio is a collection of my academic work, personal projects, and inter
 - Don't forget food!
 
 
+# Commit History 
+<img src="http://ghchart.rshah.org/simondelvillar" alt="Github chart" />
