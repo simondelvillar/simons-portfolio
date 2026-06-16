@@ -1,5 +1,6 @@
 ---
 title: "Numerical Solutions to Differential Equations using Euler's Method and other Relevant Methods"
+description: "One of my first write-ups!"
 categories:
   - Mathematics
   - Physics 
