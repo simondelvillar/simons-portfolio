@@ -70,8 +70,10 @@ Suppose we wish to approximate the solution to the initial value problem (2.0.1)
 $$
 y_{n+1}=y_{n}+hf(x_{n},y_{n}), \quad n = 0,1,\dots \tag{2.0.2}
 $$
-This method is meant to be implemented iteratively, meaning that the outputs are used as the new inputs. 
+This method is meant to be implemented iteratively, meaning that the outputs are used as the new inputs.
+
 # Application: RC Circuit Model (Charging)
+
 ## Introduction
 An RC circuit consists of a resistor $R$ and a capacitor $C$ connected to a voltage source. This system provides a simple but important example of how electrical components store and dissipate energy over time. When a voltage is applied, the capacitor does not charge instantaneously; instead, its voltage evolves gradually due to the resistance in the circuit.  A sample circuit is given below:
 
