@@ -1,0 +1,22 @@
+## Learning Journey
+
+::: {.timeline}
+
+::: {.timeline-item}
+### 2025
+
+- Graduated from Rutland Senior Secondary
+- Began my studies at [The University of British Columbia - Okanagan](https://ok.ubc.ca/)
+- Studied Calculus I, II, Microeconomics, Matrix Algebra
+- Developed an interest in [LaTeX](https://www.latex-project.org/)
+:::
+
+::: {.timeline-item}
+### 2026 
+
+- Completing Computer Science courses
+- Will study Proofs, Calculus III, Linear Algebra, Probability, Discrete Structures, Differential Equations
+:::
+
+
+:::

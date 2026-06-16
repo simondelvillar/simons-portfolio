@@ -21,3 +21,25 @@ body {
     margin: 4rem 0;
     background-color: #f8f9fa;
 }
+
+.timeline {
+  border-left: 3px solid #d0d7de;
+  margin: 2rem 0;
+  padding-left: 2rem;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2.45rem;
+  top: 0.3rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+}

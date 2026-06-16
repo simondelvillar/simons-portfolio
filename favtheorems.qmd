@@ -1,0 +1,33 @@
+---
+title: "Favourite Theorems"
+---
+
+# Fundamental Theorem of Calculus 
+The Fundamental Theorem of Calculus was one of the first results that made me stop and think, "Wait, that's actually incredible." Before learning it, differentiation and integration felt like separate tools with different purposes. Discovering that they are fundamentally connected felt like uncovering a hidden piece of mathematics that had been there all along.
+
+*Theorem.* Fundamental Theorem of Calculus. Let $a < b$ and let $f(x)$ be a function which is defined and continuous on $[a,b]$. 
+
+- ***Part 1.*** Let $\displaystyle F(x) = \int_a^x f(t) \, dt$ for any $x \in [a,b]$. Then the function $F(x)$  is differentiable and further 
+$$
+F'(x) = f(x)
+$$
+
+- ***Part 2.*** Let $G(x)$ be any function which is defined and continous on $[a,b]$. Further, let $G(x)$ be differentiable with $G'(x) = f(x)$ for all $a < x < b$. Then 
+$$
+\int_a^b f(x) \, dx = G(b) - G(a) \equiv \int_a^b G'(x) \, dx = G(b) - G(a)
+$$
+
+
+What I appreciate most about the theorem is its simplicity and power. It takes two major ideas from calculus and ties them together with a single elegant result. It's one of those theorems that makes mathematics feel beautifully interconnected.
+
+
+# Ramanujan's Formula for $\pi$
+
+I've always been fascinated by Srinivasa Ramanujan's work. Beyond the formulas themselves, I'm inspired by the creativity and intuition he seemed to possess. His discoveries often feel almost magical at first glance, especially when you see how quickly some of his infinite series converge.
+
+$$
+\frac{1}{\pi} = \frac{2 \sqrt{2}}{9801} \sum_{k=0}^\infty \frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}}
+$$
+
+
+What I find most interesting is that Ramanujan's story reminds me that mathematics isn't only about following established methods—it's also about curiosity, experimentation, and seeing patterns that others might overlook.
