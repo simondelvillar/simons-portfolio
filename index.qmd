@@ -36,7 +36,3 @@ This portfolio is a collection of my academic work, personal projects, and inter
 - 🏃 Staying active through sports and recreation
 - 📚 Learning new skills and exploring new ideas
 - Don't forget food!
-
-
-# Commit History 
-<img src="http://ghchart.rshah.org/simondelvillar" alt="Github chart" />
