@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Simon Del Villar",
+    "section": "",
+    "text": "Bio\nHi, I’m Simon, a Mathematics student with a passion for problem solving, learning, and exploring how mathematical ideas can be applied to the world around us. What I enjoy most about mathematics is that it teaches you how to think critically, approach challenges from different perspectives, and break complex problems into manageable pieces.\nAlongside my studies, I enjoy working on projects that combine mathematics and technology, including algorithms, programming, data analysis, and mathematical modeling. I’m particularly interested in how computational tools can be used to visualize concepts, analyze data, and develop practical solutions to real-world problems.\nBeyond academics, I enjoy sharing knowledge and helping others learn. Whether it’s explaining a mathematical concept, creating engaging activities for children, or collaborating with others on a project, I value clear communication and continuous learning. I believe that some of the most rewarding experiences come from making complex ideas more accessible and helping others build confidence in their own abilities.\nThis portfolio is a collection of my academic work, personal projects, and interests. It reflects my journey as a student and highlights the skills, experiences, and ideas that have shaped my growth in mathematics and beyond. Thank you for visiting, and I hope you find something here that inspires curiosity and conversation.\n\n\nBeyond Mathematics\n\n📷 Landscape and nature photography\n🏔️ Exploring local trails and outdoor spaces\n💻 Programming and personal coding projects\n📊 Data visualization and analytics\n🏃 Staying active through sports and recreation\n📚 Learning new skills and exploring new ideas"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Mathematical Proof Using LaTeX\n\n\n\nMathematics\n\nProof Writing\n\nLogic\n\nNumber Theory\n\nDiscrete Mathematics\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects.html#proof-writing-latex",
+    "href": "projects.html#proof-writing-latex",
+    "title": "Projects",
+    "section": "",
+    "text": "A collection of selected mathematical problems and proofs from coursework and independent study. Topics include combinatorics, number theory, graph theory, and discrete mathematics, demonstrating logical reasoning and analytical thinking."
+  },
+  {
+    "objectID": "projects/proofs.html",
+    "href": "projects/proofs.html",
+    "title": "Mathematical Proof Using LaTeX",
+    "section": "",
+    "text": "This project is a collection of mathematical proofs completed through coursework and independent study. The goal of the portfolio is not only to demonstrate correctness, but also to develop clear and rigorous mathematical communication.\nThe collection includes direct proofs, proof by contradiction, mathematical induction, and combinatorial arguments across topics such as number theory, logic, and discrete mathematics. Through these exercises, I strengthened my ability to construct logical arguments, analyze abstract concepts, and communicate complex ideas with precision."
+  },
+  {
+    "objectID": "projects/proofs.html#proof-techniques",
+    "href": "projects/proofs.html#proof-techniques",
+    "title": "Mathematical Proof Using LaTeX",
+    "section": "Proof Techniques",
+    "text": "Proof Techniques\n\nInduction\n\n\nContradiction\n\n\nFor fun\n\nLaTeX Practice"
+  }
+]

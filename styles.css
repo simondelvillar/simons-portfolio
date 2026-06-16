@@ -1,0 +1,15 @@
+/* css styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Project category tags */
+.quarto-category {
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}

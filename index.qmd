@@ -1,0 +1,37 @@
+---
+title: "Simon Del Villar"
+description: ""
+about:
+    template: trestles
+    links:
+        - icon: linkedin
+          text: LinkedIn
+          url: https://linkedin.com
+        - icon: github
+          text: Github
+          url: https://github.com/chrisvoncsefalvay
+        - icon: instagram
+          text: Instagram
+          url: https://www.instagram.com/chrisvoncsefalvay/
+        - text: "{{< fa envelope >}} Email"
+          url: mailto:simon.joven.delvillar@gmail.com
+image: img/simonphoto.jpg
+comments: false
+---
+
+# Bio 
+Hi, I'm Simon, a Mathematics student with a passion for problem solving, learning, and exploring how mathematical ideas can be applied to the world around us. What I enjoy most about mathematics is that it teaches you how to think critically, approach challenges from different perspectives, and break complex problems into manageable pieces.
+
+Alongside my studies, I enjoy working on projects that combine mathematics and technology, including algorithms, programming, data analysis, and mathematical modeling. I'm particularly interested in how computational tools can be used to visualize concepts, analyze data, and develop practical solutions to real-world problems.
+
+Beyond academics, I enjoy sharing knowledge and helping others learn. Whether it's explaining a mathematical concept, creating engaging activities for children, or collaborating with others on a project, I value clear communication and continuous learning. I believe that some of the most rewarding experiences come from making complex ideas more accessible and helping others build confidence in their own abilities.
+
+This portfolio is a collection of my academic work, personal projects, and interests. It reflects my journey as a student and highlights the skills, experiences, and ideas that have shaped my growth in mathematics and beyond. Thank you for visiting, and I hope you find something here that inspires curiosity and conversation.
+
+# Beyond Mathematics
+- 📷 Landscape and nature photography
+- 🏔️ Exploring local trails and outdoor spaces
+- 💻 Programming and personal coding projects
+- 📊 Data visualization and analytics
+- 🏃 Staying active through sports and recreation
+- 📚 Learning new skills and exploring new ideas

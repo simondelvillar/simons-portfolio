@@ -1,0 +1,48 @@
+---
+title: "Mathematical Proof Using LaTeX"
+categories:
+  - Mathematics
+  - Proof Writing
+  - Logic
+  - Number Theory
+  - Discrete Mathematics
+---
+
+This project is a collection of mathematical proofs completed through coursework and independent study. The goal of the portfolio is not only to demonstrate correctness, but also to develop clear and rigorous mathematical communication.
+
+The collection includes direct proofs, proof by contradiction, mathematical induction, and combinatorial arguments across topics such as number theory, logic, and discrete mathematics. Through these exercises, I strengthened my ability to construct logical arguments, analyze abstract concepts, and communicate complex ideas with precision.
+
+# Topics Covered
+
+- Proof by Contradiction
+- Mathematical Induction
+- Number Theory
+- Logic and Sets
+- Combinatorics
+- Discrete Mathematics
+
+# Skills
+
+- Mathematical Reasoning
+- Critical Thinking
+- Written Communication
+- Problem Solving
+- Logical Analysis
+
+# Key Takeaway
+
+::: {.callout-tip}
+Proof writing taught me that mathematics is not only about finding answers but also about building convincing and rigorous arguments. This project helped develop the analytical and communication skills that form the foundation of higher-level mathematics.
+:::
+
+# Curated List (so far)
+All of these links direct the user to download a PDF. 
+
+## Proof Techniques
+
+### Induction 
+
+### Contradiction 
+
+### For fun
+- [LaTeX Practice](../proofs/general-practice/Proofs.pdf)
