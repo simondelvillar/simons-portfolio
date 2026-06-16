@@ -29,7 +29,7 @@ Beyond academics, I enjoy sharing knowledge and helping others learn. Whether it
 This portfolio is a collection of my academic work, personal projects, and interests. It reflects my journey as a student and highlights the skills, experiences, and ideas that have shaped my growth in mathematics and beyond. Thank you for visiting, and I hope you find something here that inspires curiosity and conversation.
 
 # Beyond Mathematics
-- 📷 Landscape and nature photography
+- 📷 Landscape and nature photography (check out [my photography site!](https://simondelvillar.github.io/simondvphotography/))
 - 🏔️ Exploring local trails and outdoor spaces
 - 💻 Programming and personal coding projects
 - 📊 Data visualization and analytics
