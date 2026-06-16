@@ -61,6 +61,7 @@ Intuitively, one can think about the solution to equation (1) by thinking of a f
 $$
 y(t) = e^{t} \text{ as } \dfrac{dy}{dt} \, e^{t} = e^{t}.
 $$
+
 # Euler's Method 
 There are some differential equations in which solutions are non-elementary (that is, not expressed in terms of elementary functions). In addition, there are also a fairly large set of differential equations that are not easy to sketch direction fields for. In these cases we result to numerical methods that can be used to approximate solutions to a differential equation. Consider the unique solution to the initial value problem 
 $$
