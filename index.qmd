@@ -6,13 +6,13 @@ about:
     links:
         - icon: linkedin
           text: LinkedIn
-          url: https://linkedin.com
+          url: https://www.linkedin.com/in/simon-del-villar-80b12a27b/
         - icon: github
           text: Github
-          url: https://github.com/chrisvoncsefalvay
+          url: https://github.com/simondelvillar
         - icon: instagram
           text: Instagram
-          url: https://www.instagram.com/chrisvoncsefalvay/
+          url: https://www.instagram.com/simondelvillar/
         - text: "{{< fa envelope >}} Email"
           url: mailto:simon.joven.delvillar@gmail.com
 image: img/simonphoto.jpg

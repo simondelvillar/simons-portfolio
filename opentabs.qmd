@@ -1,0 +1,127 @@
+---
+title: "Word Bubble"
+description: "Fun experiment with Quarto."
+---
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Word Bubble Cloud</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #fff; }
+
+  .cloud {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+  }
+
+  .bubble {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 500;
+    text-align: center;
+    padding: 6px;
+    line-height: 1.2;
+    cursor: default;
+    user-select: none;
+    opacity: 0;
+    transform: scale(0);
+    animation:
+      popIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) var(--delay) forwards,
+      float var(--float-dur) ease-in-out var(--float-delay) infinite alternate;
+    transition: transform 0.2s ease;
+  }
+  .bubble:hover { transform: scale(1.15) !important; z-index: 10; }
+
+  @keyframes popIn {
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes float {
+    from { translate: 0px 0px; }
+    to   { translate: var(--dx) var(--dy); }
+  }
+</style>
+</head>
+<body>
+<div class="cloud" id="cloud"></div>
+
+<script>
+// ── EDIT YOUR WORDS HERE ──────────────────────────────────────────
+// Each entry: { text, size }
+// size controls bubble diameter (px) — bigger = more prominent
+const WORDS = [
+  { text: 'Food',  size: 150 },
+  { text: 'Final exam',    size: 130 },
+  { text: 'NBA Finals',      size: 120 },
+  { text: 'Camera on the next hike?',        size: 100 },
+];
+// ─────────────────────────────────────────────────────────────────
+
+const RAMPS = [
+  { bg: '#EEEDFE', border: '#534AB7', text: '#3C3489' },
+  { bg: '#E1F5EE', border: '#0F6E56', text: '#085041' },
+  { bg: '#FAECE7', border: '#993C1D', text: '#4A1B0C' },
+  { bg: '#FBEAF0', border: '#993556', text: '#4B1528' },
+  { bg: '#E6F1FB', border: '#185FA5', text: '#042C53' },
+  { bg: '#FAEEDA', border: '#854F0B', text: '#412402' },
+  { bg: '#EAF3DE', border: '#3B6D11', text: '#173404' },
+];
+
+const cloud = document.getElementById('cloud');
+const W = cloud.clientWidth;
+const H = cloud.clientHeight;
+const placed = [];
+
+const sorted = [...WORDS].sort((a, b) => b.size - a.size);
+const maxSize = sorted[0].size;
+
+sorted.forEach((item, i) => {
+  const c = RAMPS[i % RAMPS.length];
+  const fontSize = Math.round(11 + (item.size / maxSize) * 14);
+
+  const div = document.createElement('div');
+  div.className = 'bubble';
+  div.textContent = item.text;
+  div.style.cssText = `
+    width: ${item.size}px;
+    height: ${item.size}px;
+    font-size: ${fontSize}px;
+    background: ${c.bg};
+    border: 1.5px solid ${c.border};
+    color: ${c.text};
+    --delay: ${i * 0.1}s;
+    --float-dur: ${3.5 + Math.random() * 2.5}s;
+    --float-delay: -${Math.random() * 3}s;
+    --dx: ${(Math.random() - 0.5) * 20}px;
+    --dy: ${(Math.random() - 0.5) * 14}px;
+  `;
+
+  let x, y, tries = 0;
+  do {
+    x = Math.random() * (W - item.size);
+    y = Math.random() * (H - item.size);
+    tries++;
+  } while (tries < 120 && placed.some(p => {
+    const dx = (p.x + p.s / 2) - (x + item.size / 2);
+    const dy = (p.y + p.s / 2) - (y + item.size / 2);
+    return Math.sqrt(dx * dx + dy * dy) < (p.s + item.size) / 2 + 8;
+  }));
+
+  placed.push({ x, y, s: item.size });
+  div.style.left = x + 'px';
+  div.style.top  = y + 'px';
+  cloud.appendChild(div);
+});
+</script>
+</body>
+</html>
+```

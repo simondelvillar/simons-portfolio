@@ -12,6 +12,8 @@ website:
         text: Learning  
       - href: favtheorems.qmd
         text: Favourite Theorems
+      - href: opentabs.qmd
+        text: Word Bubble
 
 format:
   html:
