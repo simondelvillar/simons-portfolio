@@ -80,11 +80,23 @@ body {
   to   { translate: var(--dx) var(--dy); }
 }
 
+/* Container for your stats layout */
+.stats-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap if screen is too small */
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
 .commit-map {
-    max-width: 500px;
-    margin: 2rem auto;
+    max-width: 150px; /* Adjust size to look good next to text */
+    width: 100%;      /* Ensures responsiveness */
+    height: auto;
     opacity: 0.65;
     filter: grayscale(100%);
+    /* Remove 'margin: auto' here if using the container to control alignment */
 }
 
 .listening-now {

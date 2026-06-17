@@ -20,7 +20,7 @@ comments: false
 ---
 
 # Bio 
-Hello! Simon. When I’m not buried under a pile of math homework or deep in a textbook, I’m usually enjoying the outdoors, taking photos with my photography friends, and spending time with the people I love.
+Hello! I'm Simon. When I’m not buried under a pile of math homework or deep in a textbook, I’m usually enjoying the outdoors, taking photos with my photography friends, and spending time with the people I love.
 
 I’m a math student, but I’m a 'generalist' at heart. I find joy in the variety of mathematics—from the abstract puzzles that keep me up at night to the data-driven projects that help me make sense of the world.
 
