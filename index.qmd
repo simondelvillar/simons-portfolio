@@ -24,7 +24,8 @@ Hello! I'm Simon. When I’m not buried under a pile of math homework or deep in
 
 I’m a math student, but I’m a 'generalist' at heart. I find joy in the variety of mathematics—from the abstract puzzles that keep me up at night to the data-driven projects that help me make sense of the world.
 
-I built this site to bridge the gap between my academic life and the things that genuinely interest me. Grab a coffee (or a tea, or water!), browse my latest projects, and if you want to talk shop—or just talk about stuff—let's connect."
+I built this site to bridge the gap between my academic life and the things that genuinely interest me. Grab a coffee (or tea, or water!), browse my latest projects, and if you want to talk shop—or just talk about stuff—let's connect.
+
 
 # Beyond Mathematics
 - 📷 Landscape and nature photography (check out [my photography site!](https://simondelvillar.github.io/simondvphotography/))
