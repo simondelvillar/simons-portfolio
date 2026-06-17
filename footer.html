@@ -1,0 +1,13 @@
+<footer style="margin-top: 100px; padding: 40px 0; border-top: 1px solid #e0e0e0; text-align: center;">
+  <div style="font-size: 0.85rem; color: #333;">
+    Dedicated to my teacher, Mr. Gilbert, for teaching me to ask 'why'.
+  </div>
+  <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #888; margin-top: 10px; letter-spacing: 0.05em;">
+    LAST UPDATED: <span id="last-updated"></span>
+  </div>
+</footer>
+
+<script>
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById("last-updated").textContent = new Date(document.lastModified).toLocaleDateString('en-US', options).toUpperCase();
+</script>
