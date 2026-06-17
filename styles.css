@@ -80,13 +80,16 @@ body {
   to   { translate: var(--dx) var(--dy); }
 }
 
-.github-activity {
-    margin-top: 1rem;
-    opacity: 0.75;
-    max-width: 600px;
+.commit-map {
+    max-width: 500px;
+    margin: 2rem auto;
+    opacity: 0.65;
+    filter: grayscale(100%);
 }
 
-.github-activity img {
-    width: 100%;
-    border-radius: 8px;
+.listening-now {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin: 2rem 0;
 }

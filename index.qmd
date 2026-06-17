@@ -20,13 +20,11 @@ comments: false
 ---
 
 # Bio 
-Hi, I'm Simon, a Mathematics student with a passion for problem solving, learning, and exploring how mathematical ideas can be applied to the world around us. What I enjoy most about mathematics is that it teaches you how to think critically, approach challenges from different perspectives, and break complex problems into manageable pieces.
+Hello! Simon. When I’m not buried under a pile of math homework or deep in a textbook, I’m usually enjoying the outdoors, taking photos with my photography friends, and spending time with the people I love.
 
-Alongside my studies, I enjoy working on projects that combine mathematics and technology, including algorithms, programming, data analysis, and mathematical modeling. I'm particularly interested in how computational tools can be used to visualize concepts, analyze data, and develop practical solutions to real-world problems.
+I’m a math student, but I’m a 'generalist' at heart. I find joy in the variety of mathematics—from the abstract puzzles that keep me up at night to the data-driven projects that help me make sense of the world.
 
-Beyond academics, I enjoy sharing knowledge and helping others learn. Whether it's explaining a mathematical concept, creating engaging activities for children, or collaborating with others on a project, I value clear communication and continuous learning. I believe that some of the most rewarding experiences come from making complex ideas more accessible and helping others build confidence in their own abilities.
-
-This portfolio is a collection of my academic work, personal projects, and interests. It reflects my journey as a student and highlights the skills, experiences, and ideas that have shaped my growth in mathematics and beyond. Thank you for visiting, and I hope you find something here that inspires curiosity and conversation.
+I built this site to bridge the gap between my academic life and the things that genuinely interest me. Grab a coffee (or a tea, or water!), browse my latest projects, and if you want to talk shop—or just talk about stuff—let's connect."
 
 # Beyond Mathematics
 - 📷 Landscape and nature photography (check out [my photography site!](https://simondelvillar.github.io/simondvphotography/))
@@ -37,11 +35,20 @@ This portfolio is a collection of my academic work, personal projects, and inter
 - 📚 Learning new skills and exploring new ideas
 - Don't forget food!
 
+
+<div class="listening-now">
+🎧 Currently listening to <em>Strangers in the Night</em> — Bert Kaempfert
+</div>
+
+
 ## Behind the Scenes
 
 Most of this website is built and maintained through Git, GitHub, and Quarto.
 
-<div class="github-activity">
-  <img src="https://ghchart.rshah.org/simondelvillar"
-       alt="GitHub contribution history">
+<div class="commit-map">
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=simondelvillar&show_icons=true&hide_border=true&rank_icon=github"
+    alt="GitHub statistics">
 </div>
+
+
