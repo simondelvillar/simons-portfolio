@@ -10,7 +10,6 @@ categories:
 
 When I first sat down with this, I treated it like a logic puzzle. I had to find a "sweet spot" for variables $a$ and $b$ so the equation $|g(x)^2 - a^2| = k$ would give me exactly seven solutions. I knew what it looked like visually, and if you want a visual proof, then see the embed below.
 
-
 <div class="iframe-container">
 <iframe src="https://www.desmos.com/calculator/xdxuxzkmf1?embed" frameborder=0></iframe>
 </div>
@@ -23,15 +22,19 @@ I noticed immediately that the total number of solutions is seven—an odd numbe
   
 ## Narrowing Down the Targets
 
-To make zero a valid target, the math basically forces $k$ to be $a^2$.This split the problem into three simple target heights for the function: $0$, $a\sqrt{2}$, and $-a\sqrt{2}$.
+To make zero a valid target, the math basically forces $k$ to be $a^2$. This split the problem into three simple target heights for the function: $0$, $a\sqrt{2}$, and $-a\sqrt{2}$.
   
 ## Counting the Hits: The Zero Line
 
-Since $g(x) = x(x+2b)(x-2b)$, it hits zero at three spots ($0$ and $\pm 2b$). That gave me my first three solutions.The Other Lines: I needed four more solutions to reach seven. Because the graph is symmetric, it made sense that the lines $a\sqrt{2}$ and $-a\sqrt{2}$ would each have to provide exactly two solutions.
+Since $g(x) = x(x+2b)(x-2b)$, it hits zero at three spots ($0$ and $\pm 2b$). That gave me my first three solutions.
+
+### The Other Lines: 
+
+I needed four more solutions to reach seven. Because the graph is symmetric, it made sense that the lines $a\sqrt{2}$ and $-a\sqrt{2}$ would each have to provide exactly two solutions.
   
 ## The "Tangent" Trick
 
-I know from calculus that a horizontal line only hits a curvy cubic function exactly twice if it "kisses" the peak or valley perfectly.I used the derivative to find the peaks and valleys at $x = \pm 2b/\sqrt{3}$.I calculated that the height of these points is $M = 16b^3 / (3\sqrt{3})$.So, to get my two solutions per line, I just set my target height $a\sqrt{2}$ equal to that peak height $M$.
+I know from calculus that a horizontal line only hits a curvy cubic function exactly twice if it "kisses" the peak or valley perfectly. I used the derivative to find the peaks and valleys at $x = \pm 2b/\sqrt{3}$. I calculated that the height of these points is $M = 16b^3 / (3\sqrt{3})$. So, to get my two solutions per line, I just set my target height $a\sqrt{2}$ equal to that peak height $M$.
   
 ## The Final Wrap-up
 
