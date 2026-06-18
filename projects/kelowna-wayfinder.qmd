@@ -17,13 +17,13 @@ categories:
 
 How does a navigation system determine the "best" route from one location to another?
 
-This project explores three classical pathfinding algorithms—Breadth-First Search (BFS), Dijkstra's Algorithm, and A* Search—through the lens of graph theory and optimization. Using a simplified road network based on Kelowna, British Columbia, I investigated how different mathematical assumptions lead to different navigation strategies.
+This project explores three classical pathfinding algorithms—Breadth-First Search (BFS), Dijkstra's Algorithm, and A* Search—through the lens of graph theory and optimization. Using a simplified road network based on [Kelowna, British Columbia](https://www.openstreetmap.org/?#map=11/49.8995/-119.5402), I investigated how different mathematical assumptions lead to different navigation strategies.
 
 The project sits at the intersection of discrete mathematics, optimization, and computer science, demonstrating how abstract mathematical structures underpin modern navigation systems.
 
 ## Historical Context
 
-The foundations of pathfinding can be traced to graph theory, beginning with Euler's solution to the Königsberg Bridge Problem in 1736. By representing locations as vertices and connections as edges, Euler established a mathematical framework for studying networks.
+The foundations of pathfinding can be traced to graph theory, beginning with Euler's solution to the [Königsberg Bridge Problem](https://mathworld.wolfram.com/KoenigsbergBridgeProblem.html) in 1736. By representing locations as vertices and connections as edges, Euler established a mathematical framework for studying networks.
 
 In the twentieth century, researchers developed increasingly sophisticated methods for navigating graphs:
 
@@ -88,7 +88,7 @@ In the Kelowna model, BFS often selected routes with the fewest road segments ra
 
 ## Dijkstra's Algorithm
 
-Dijkstra's Algorithm generalizes BFS to weighted graphs.
+[Dijkstra](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra)'s Algorithm generalizes BFS to weighted graphs.
 
 For each vertex $v$, we maintain the smallest known distance
 
@@ -157,7 +157,7 @@ Under this condition, A* is guaranteed to return an optimal path.
 
 ### Application to Kelowna
 
-Because the locations possess natural geographic coordinates, Euclidean distance provided an effective heuristic. A* produced the same optimal routes as Dijkstra's Algorithm while exploring fewer vertices.
+Because the locations possess natural geographic coordinates, [Euclidean distance](https://mathworld.wolfram.com/Distance.html) provided an effective heuristic. A* produced the same optimal routes as Dijkstra's Algorithm while exploring fewer vertices.
 
 ## Comparison
 
@@ -180,9 +180,7 @@ This project demonstrates how graph theory provides a powerful framework for mod
 What begins as a collection of roads and intersections can ultimately be understood as an optimization problem on a graph, revealing the deep connection between mathematics and everyday technology.
 
 
-
-
-
+# Wayfinder Widget
 
 ```{=html}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
