@@ -25,6 +25,8 @@ The project sits at the intersection of discrete mathematics, optimization, and 
 
 The foundations of pathfinding can be traced to graph theory, beginning with Euler's solution to the [Königsberg Bridge Problem](https://mathworld.wolfram.com/KoenigsbergBridgeProblem.html) in 1736. By representing locations as vertices and connections as edges, Euler established a mathematical framework for studying networks.
 
+![*A bird's-eye view of Königsberg, during Euler's time.*](../img/graph/konigsberg-1581-22.jpg)
+
 In the twentieth century, researchers developed increasingly sophisticated methods for navigating graphs:
 
 * **Breadth-First Search (1950s)** introduced systematic graph traversal.
