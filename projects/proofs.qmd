@@ -12,6 +12,7 @@ This project is a collection of mathematical proofs completed through coursework
 
 The collection includes direct proofs, proof by contradiction, mathematical induction, and combinatorial arguments across topics such as number theory, logic, and discrete mathematics. Through these exercises, I strengthened my ability to construct logical arguments, analyze abstract concepts, and communicate complex ideas with precision.
 
+
 # Topics Covered
 
 - Proof by Contradiction

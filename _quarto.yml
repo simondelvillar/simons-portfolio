@@ -11,6 +11,8 @@ website:
       - projects.qmd
       - href: learning.qmd
         text: Learning  
+      - href: experiments.qmd
+        text: Experiments
       - href: favtheorems.qmd
         text: Favourite Theorems
       - href: opentabs.qmd

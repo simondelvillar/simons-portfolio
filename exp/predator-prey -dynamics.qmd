@@ -1,0 +1,6 @@
+---
+title: "Predator–Prey Dynamics Lab"
+description: "An interactive exploration of nonlinear discrete dynamical systems inspired by ecological models. Adjust growth, predation, death, and reproduction parameters to investigate equilibrium points, population cycles, stability, and collapse — watching complex behaviour emerge from a simple pair of recurrence relations."
+---
+
+<iframe src="predator-prey-dynamics-lab.html" width="100%" height="1400" style="border:none;"></iframe>

@@ -1,0 +1,9 @@
+---
+title: "Experiments"
+description: "Small mathematical machines built to explore interesting ideas."
+listing:
+  contents: exp
+  sort: "date desc"
+  categories: true
+---
+
