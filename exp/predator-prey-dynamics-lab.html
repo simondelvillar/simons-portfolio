@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predator–Prey Dynamics Lab</title>
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+
+<style>
+:root{
+  --paper:      #efeae1;
+  --paper-2:    #e4ddd0;
+  --ink:        #20201c;
+  --ink-soft:   #5c574c;
+  --rule:       #c9c0ab;
+  --prey:       #b5502a;
+  --prey-soft:  #d98f6f;
+  --predator:   #1f5c5a;
+  --predator-soft: #5b9794;
+  --accent:     #8a6d3b;
+  --danger:     #9c2b2b;
+  --mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: local("Source Serif 4");
+}
+
+* { box-sizing: border-box; }
+html,body{
+  margin:0; padding:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+
+a { color: var(--accent); }
+
+/* faint laboratory grid texture on the page */
+body{
+  background-image:
+    linear-gradient(var(--paper-2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-2) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
+}
+
+header.masthead{
+  padding: 38px 48px 22px;
+  border-bottom: 2px solid var(--ink);
+  background: var(--paper);
+}
+header.masthead .eyebrow{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+header.masthead h1{
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 38px;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+header.masthead p.sub{
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 16px;
+  margin: 0;
+  max-width: 720px;
+}
+header.masthead .equations{
+  margin-top: 18px;
+  font-size: 15px;
+  color: var(--ink);
+  display:flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.layout{
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 140px);
+}
+
+/* ---------- sidebar / control panel ---------- */
+.panel{
+  border-right: 2px solid var(--ink);
+  padding: 26px 28px 60px;
+  background: var(--paper);
+}
+.panel h2{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 28px 0 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.panel h2:first-of-type{ border-top: none; padding-top:0; margin-top:0;}
+
+.ctrl{ margin-bottom: 16px; }
+.ctrl label{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-family: var(--sans);
+}
+.ctrl label .name{ color: var(--ink); font-weight: 600; }
+.ctrl label .val{
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--accent);
+  background: var(--paper-2);
+  padding: 1px 6px;
+  border-radius: 3px;
+  min-width: 48px;
+  text-align:right;
+}
+.ctrl input[type=range]{
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--rule);
+  outline: none;
+}
+.ctrl input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+  cursor: pointer;
+  margin-top: -1px;
+}
+.ctrl input[type=range]::-moz-range-thumb{
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  cursor: pointer;
+}
+.ctrl .hint{ font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; }
+
+.btnrow{ display:flex; gap:8px; flex-wrap: wrap; margin-top: 6px;}
+button{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+button:hover{ background: var(--ink); color: var(--paper); }
+button.primary{ background: var(--ink); color: var(--paper); }
+button.primary:hover{ background: var(--accent); border-color: var(--accent); }
+button:active{ transform: translateY(1px); }
+
+/* ---------- main content ---------- */
+main{ padding: 30px 40px 80px; }
+
+.cardrow{
+  display:grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+@media (max-width: 1100px){
+  .cardrow{ grid-template-columns: 1fr; }
+  .layout{ grid-template-columns: 1fr; }
+  .panel{ border-right:none; border-bottom: 2px solid var(--ink); }
+}
+
+.card{
+  background: #fbf9f4;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  padding: 18px 20px 14px;
+  position: relative;
+}
+.card .tag{
+  position: absolute;
+  top: -11px; left: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+.card h3{
+  margin: 6px 0 2px;
+  font-family: var(--serif);
+  font-size: 18px;
+}
+.card .note{ font-size: 12.5px; color: var(--ink-soft); margin-bottom: 8px;}
+
+.legend-row{ display:flex; gap:18px; font-size:12px; font-family: var(--mono); margin-bottom: 6px;}
+.legend-row span{ display:flex; align-items:center; gap:6px; }
+.swatch{ width:11px; height:11px; border-radius:50%; display:inline-block; }
+
+.statgrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.stat{
+  background: #fbf9f4;
+  border: 1.5px solid var(--ink);
+  padding: 14px 16px;
+  position: relative;
+}
+.stat .tag{
+  position: absolute; top:-11px; left:14px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 7px;
+}
+.stat .big{
+  font-family: var(--mono);
+  font-size: 20px;
+  margin-top: 6px;
+}
+.stat .lbl{ font-size: 12px; color: var(--ink-soft); margin-top:2px;}
+.stat .big.fade{ color: var(--ink-soft); font-style: italic; font-size: 14px;}
+.flag{
+  display:inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 6px;
+}
+.flag.ok{ background:#dde8d8; color:#37592e; }
+.flag.warn{ background:#f1ddc4; color:#7a4a14; }
+.flag.bad{ background:#efd2d2; color:var(--danger); }
+
+.theorybox{
+  background: var(--paper-2);
+  border-left: 3px solid var(--ink);
+  padding: 14px 18px;
+  margin-top: 6px;
+  margin-bottom: 22px;
+}
+.theorybox h3{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.theorygrid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.theorygrid .item h4{
+  font-family: var(--serif);
+  font-size: 15px;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+.theorygrid .item p{
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+footer.note{
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+  margin-top: 10px;
+}
+
+#timeChart, #phaseChart{ width:100%; height: 340px; }
+
+.eq-display{ font-size: 15px; }
+
+.runstate{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="eyebrow">Computational Laboratory &middot; Discrete Dynamical Systems</div>
+  <h1>Predator&ndash;Prey Dynamics Lab</h1>
+  <p class="sub">An interactive notebook for a nonlinear recurrence model — adjust the parameters below and watch equilibrium, oscillation, and collapse emerge from three simple rules.</p>
+  <div class="equations eq-display">
+    \( x_{n+1} = x_n(1 + r - a y_n) \) &nbsp;&nbsp; \( y_{n+1} = y_n(1 - b + c x_n) \)
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- ============ CONTROL PANEL ============ -->
+  <aside class="panel">
+    <h2>Initial Conditions</h2>
+    <div class="ctrl">
+      <label><span class="name">Prey, x₀</span><span class="val" id="v-x0">10.0</span></label>
+      <input type="range" id="x0" min="0" max="40" step="0.1" value="10">
+    </div>
+    <div class="ctrl">
+      <label><span class="name">Predators, y₀</span><span class="val" id="v-y0">5.0</span></label>
+      <input type="range" id="y0" min="0" max="40" step="0.1" value="5">
+    </div>
+
+    <h2>Model Parameters</h2>
+    <div class="ctrl">
+      <label><span class="name">Growth rate, r</span><span class="val" id="v-r">0.40</span></label>
+      <input type="range" id="r" min="0" max="1.2" step="0.005" value="0.40">
+      <div class="hint">Prey reproduce at this rate absent predation.</div>
+    </div>
+    <div class="ctrl">
+      <label><span class="name">Predation, a</span><span class="val" id="v-a">0.04</span></label>
+      <input type="range" id="a" min="0.001" max="0.2" step="0.001" value="0.04">
+      <div class="hint">Strength of predator suppression of prey.</div>
+    </div>
+    <div class="ctrl">
+      <label><span class="name">Death rate, b</span><span class="val" id="v-b">0.30</span></label>
+      <input type="range" id="b" min="0" max="1.2" step="0.005" value="0.30">
+      <div class="hint">Predator decline absent prey.</div>
+    </div>
+    <div class="ctrl">
+      <label><span class="name">Reproduction, c</span><span class="val" id="v-c">0.02</span></label>
+      <input type="range" id="c" min="0.001" max="0.2" step="0.001" value="0.02">
+      <div class="hint">Predator growth per unit of prey consumed.</div>
+    </div>
+
+    <h2>Simulation</h2>
+    <div class="ctrl">
+      <label><span class="name">Iterations, N</span><span class="val" id="v-n">200</span></label>
+      <input type="range" id="niter" min="20" max="1000" step="10" value="200">
+    </div>
+
+    <div class="btnrow">
+      <button class="primary" id="btnPlay">▶ Play</button>
+      <button id="btnReset">↺ Reset</button>
+      <button id="btnRandom">⚄ Randomize</button>
+    </div>
+    <div class="runstate" id="runstate">step 0 / 200</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <div class="statgrid">
+      <div class="stat">
+        <span class="tag">Fixed Points</span>
+        <div class="big" id="stat-fixed">—</div>
+        <div class="lbl" id="stat-fixed-lbl">trivial &amp; coexistence equilibria</div>
+      </div>
+      <div class="stat">
+        <span class="tag">Coexistence Stability</span>
+        <div class="big" id="stat-stability">—</div>
+        <div class="lbl">spectral radius of Jacobian, |λ|<sub>max</sub></div>
+      </div>
+      <div class="stat">
+        <span class="tag">Long-run Outcome</span>
+        <div class="big fade" id="stat-outcome">—</div>
+        <div class="lbl">over the simulated horizon</div>
+      </div>
+    </div>
+
+    <div class="cardrow">
+      <div class="card">
+        <span class="tag">Time Series</span>
+        <h3>Population vs. Time</h3>
+        <div class="note">Discrete step \(n\) on the horizontal axis. Hover any point to read exact values.</div>
+        <div class="legend-row">
+          <span><span class="swatch" style="background:var(--prey)"></span>prey, xₙ</span>
+          <span><span class="swatch" style="background:var(--predator)"></span>predators, yₙ</span>
+        </div>
+        <div id="timeChart"></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Phase Portrait</span>
+        <h3>Trajectory in (x, y)</h3>
+        <div class="note">Each point is one iterate. Color darkens with time; a marker shows the coexistence fixed point.</div>
+        <div id="phaseChart"></div>
+      </div>
+    </div>
+
+    <div class="theorybox">
+      <h3>Reading the Mathematics</h3>
+      <div class="theorygrid">
+        <div class="item">
+          <h4>Fixed points</h4>
+          <p>Setting \(x_{n+1}=x_n\) and \(y_{n+1}=y_n\) gives two equilibria: extinction \((0,0)\), and coexistence \(\left(\frac{b}{c}, \frac{r}{a}\right)\) — the only population levels at which both species exactly replace themselves each step.</p>
+        </div>
+        <div class="item">
+          <h4>Stability</h4>
+          <p>Linearizing the map at a fixed point gives a Jacobian whose eigenvalue magnitudes decide its fate: if both \(|\lambda| < 1\) the point attracts nearby trajectories; if any \(|\lambda| > 1\) the equilibrium repels, and small perturbations grow.</p>
+        </div>
+        <div class="item">
+          <h4>Oscillation</h4>
+          <p>Complex eigenvalues at the coexistence point produce rotation in phase space — the classic predator-lag cycle, where predator peaks trail prey peaks because growth in each population only feeds through to the other on the next step.</p>
+        </div>
+        <div class="item">
+          <h4>Sensitivity</h4>
+          <p>Because the map is nonlinear, small changes in \(r\), \(a\), \(b\), or \(c\) can shift the system between damped settling, sustained cycles, and runaway divergence or collapse — discrete time steps make this transition sharper than in the continuous Lotka–Volterra analogue.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="note">
+      Recurrence: xₙ₊₁ = xₙ(1 + r − a·yₙ),&nbsp; yₙ₊₁ = yₙ(1 − b + c·xₙ). Populations are clamped at zero (extinction is absorbing). Built for exploration of discrete dynamical systems — not intended as an ecological forecasting tool.
+    </footer>
+
+  </main>
+</div>
+
+<script>
+// ---------------------------------------------------------------
+// State
+// ---------------------------------------------------------------
+const S = {
+  x0: 10, y0: 5, r: 0.40, a: 0.04, b: 0.30, c: 0.02, n: 200,
+  playing: false, step: 0, timer: null
+};
+
+const sliders = ['x0','y0','r','a','b','c'];
+const ids = { x0:'x0', y0:'y0', r:'r', a:'a', b:'b', c:'c', n:'niter' };
+
+function fmt(key, val){
+  if(key==='x0'||key==='y0') return val.toFixed(1);
+  if(key==='n') return String(Math.round(val));
+  return val.toFixed(3);
+}
+
+function readControls(){
+  sliders.forEach(k=>{
+    S[k] = parseFloat(document.getElementById(ids[k]).value);
+    document.getElementById('v-'+k).textContent = fmt(k, S[k]);
+  });
+  S.n = parseInt(document.getElementById('niter').value,10);
+  document.getElementById('v-n').textContent = S.n;
+}
+
+sliders.concat(['n']).forEach(k=>{
+  document.getElementById(ids[k]).addEventListener('input', ()=>{
+    readControls();
+    recompute();
+  });
+});
+
+// ---------------------------------------------------------------
+// Simulation
+// ---------------------------------------------------------------
+function simulate(){
+  const N = S.n;
+  const xs = [S.x0], ys = [S.y0];
+  let extinctAt = null;
+  for(let i=0;i<N;i++){
+    let x = xs[i], y = ys[i];
+    let xn = x*(1 + S.r - S.a*y);
+    let yn = y*(1 - S.b + S.c*x);
+    xn = Math.max(xn, 0);
+    yn = Math.max(yn, 0);
+    if(extinctAt===null && (xn===0 || yn===0) && (x>0 && y>0)){
+      extinctAt = i+1;
+    }
+    xs.push(xn); ys.push(yn);
+    if(!isFinite(xn) || !isFinite(yn) || xn > 1e7 || yn > 1e7){
+      // runaway divergence; stop early to keep chart sane
+      for(let j=i+2;j<=N;j++){ xs.push(NaN); ys.push(NaN); }
+      break;
+    }
+  }
+  return { xs, ys, extinctAt };
+}
+
+function jacobianEig(x,y){
+  // J = [[1+r-a y, -a x],[c y, 1-b+c x]]
+  const J11 = 1+S.r-S.a*y, J12 = -S.a*x, J21 = S.c*y, J22 = 1-S.b+S.c*x;
+  const tr = J11+J22, det = J11*J22 - J12*J21;
+  const disc = tr*tr - 4*det;
+  let mags;
+  if(disc >= 0){
+    const sq = Math.sqrt(disc);
+    const l1 = (tr+sq)/2, l2=(tr-sq)/2;
+    mags = [Math.abs(l1), Math.abs(l2)];
+  } else {
+    const re = tr/2, im = Math.sqrt(-disc)/2;
+    const mag = Math.sqrt(re*re+im*im);
+    mags = [mag, mag];
+  }
+  return Math.max(...mags);
+}
+
+function analyze(){
+  const xstar = S.c>0 ? S.b/S.c : NaN;
+  const ystar = S.a>0 ? S.r/S.a : NaN;
+  const rho = jacobianEig(xstar, ystar);
+
+  document.getElementById('stat-fixed').innerHTML =
+    `(0, 0) &nbsp;·&nbsp; (${xstar.toFixed(2)}, ${ystar.toFixed(2)})`;
+
+  const stabEl = document.getElementById('stat-stability');
+  stabEl.textContent = rho.toFixed(3);
+  let flagHtml;
+  if(rho < 0.98) flagHtml = '<span class="flag ok">stable — attracts</span>';
+  else if(rho < 1.02) flagHtml = '<span class="flag warn">marginal — neutral cycles</span>';
+  else flagHtml = '<span class="flag bad">unstable — repels</span>';
+  stabEl.insertAdjacentHTML('afterend', '');
+  document.getElementById('stat-stability').parentElement.querySelectorAll('.flag').forEach(f=>f.remove());
+  document.getElementById('stat-stability').insertAdjacentHTML('afterend', flagHtml);
+
+  return {xstar, ystar, rho};
+}
+
+function classifyOutcome(xs, ys, extinctAt){
+  const tail = 25;
+  const xt = xs.slice(-tail).filter(v=>isFinite(v));
+  const yt = ys.slice(-tail).filter(v=>isFinite(v));
+  const last = xs[xs.length-1], lasty = ys[ys.length-1];
+
+  if(!isFinite(last) || !isFinite(lasty) || last > 1e6 || lasty > 1e6){
+    return {text:'Diverges — unbounded growth', cls:'bad'};
+  }
+  if(extinctAt !== null){
+    return {text:`Collapse — extinction near step ${extinctAt}`, cls:'bad'};
+  }
+  if(xt.length && yt.length){
+    const xspread = Math.max(...xt)-Math.min(...xt);
+    const yspread = Math.max(...yt)-Math.min(...yt);
+    const xmean = xt.reduce((a,b)=>a+b,0)/xt.length;
+    const ymean = yt.reduce((a,b)=>a+b,0)/yt.length;
+    if(xspread/(xmean+1e-9) < 0.02 && yspread/(ymean+1e-9) < 0.02){
+      return {text:'Settles to equilibrium', cls:'ok'};
+    }
+    return {text:'Sustained oscillation', cls:'warn'};
+  }
+  return {text:'—', cls:''};
+}
+
+// ---------------------------------------------------------------
+// Plotting
+// ---------------------------------------------------------------
+const layoutBase = {
+  paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',
+  font:{ family:'IBM Plex Mono, monospace', size:11, color:'#20201c' },
+  margin:{ l:46, r:16, t:8, b:38 },
+  showlegend:false,
+};
+
+function initPlots(){
+  Plotly.newPlot('timeChart', [
+    {x:[], y:[], mode:'lines', name:'prey', line:{color:'#b5502a', width:2}},
+    {x:[], y:[], mode:'lines', name:'predators', line:{color:'#1f5c5a', width:2}},
+    {x:[], y:[], mode:'markers', marker:{color:'#b5502a', size:5}, showlegend:false, hoverinfo:'skip'},
+    {x:[], y:[], mode:'markers', marker:{color:'#1f5c5a', size:5}, showlegend:false, hoverinfo:'skip'},
+  ], {
+    ...layoutBase,
+    xaxis:{ title:{text:'step n', font:{size:11}}, gridcolor:'#dcd4c2', zeroline:false },
+    yaxis:{ title:{text:'population', font:{size:11}}, gridcolor:'#dcd4c2', zeroline:false },
+  }, {displayModeBar:false, responsive:true});
+
+  Plotly.newPlot('phaseChart', [
+    {x:[], y:[], mode:'lines', line:{color:'#5c574c', width:1.4}, hoverinfo:'skip'},
+    {x:[], y:[], mode:'markers', marker:{color:[], colorscale:[[0,'#cdbfa3'],[1,'#20201c']], size:5}, name:'trajectory'},
+    {x:[], y:[], mode:'markers', marker:{symbol:'x', size:11, color:'#9c2b2b'}, name:'coexistence fixed point'},
+  ], {
+    ...layoutBase,
+    xaxis:{ title:{text:'prey, x', font:{size:11}}, gridcolor:'#dcd4c2', zeroline:false },
+    yaxis:{ title:{text:'predators, y', font:{size:11}}, gridcolor:'#dcd4c2', zeroline:false },
+  }, {displayModeBar:false, responsive:true});
+}
+
+function renderUpTo(stepIdx, sim, fixed){
+  const xs = sim.xs.slice(0, stepIdx+1);
+  const ys = sim.ys.slice(0, stepIdx+1);
+  const n = xs.map((_,i)=>i);
+
+  Plotly.update('timeChart', {
+    x:[n, n, [stepIdx], [stepIdx]],
+    y:[xs, ys, [xs[stepIdx]], [ys[stepIdx]]]
+  });
+
+  const shades = xs.map((_,i)=> i/(xs.length||1));
+  Plotly.update('phaseChart', {
+    x:[xs, xs, [fixed.xstar]],
+    y:[ys, ys, [fixed.ystar]],
+  }, {}, [0,1,2]);
+  Plotly.restyle('phaseChart', {'marker.color':[shades]}, [1]);
+}
+
+// ---------------------------------------------------------------
+// Run control
+// ---------------------------------------------------------------
+let currentSim = null;
+let currentFixed = null;
+
+function recompute(){
+  stopPlaying();
+  currentSim = simulate();
+  currentFixed = analyze();
+  S.step = S.n;
+  renderUpTo(S.step, currentSim, currentFixed);
+  const outcome = classifyOutcome(currentSim.xs, currentSim.ys, currentSim.extinctAt);
+  const el = document.getElementById('stat-outcome');
+  el.textContent = outcome.text;
+  el.className = 'big ' + (outcome.cls ? '' : 'fade');
+  document.getElementById('runstate').textContent = `step ${S.step} / ${S.n}`;
+}
+
+function stopPlaying(){
+  S.playing = false;
+  if(S.timer) clearInterval(S.timer);
+  document.getElementById('btnPlay').textContent = '▶ Play';
+}
+
+function startPlaying(){
+  currentSim = simulate();
+  currentFixed = analyze();
+  S.step = 0;
+  S.playing = true;
+  document.getElementById('btnPlay').textContent = '⏸ Pause';
+  S.timer = setInterval(()=>{
+    S.step++;
+    if(S.step > S.n){
+      stopPlaying();
+      const outcome = classifyOutcome(currentSim.xs, currentSim.ys, currentSim.extinctAt);
+      const el = document.getElementById('stat-outcome');
+      el.textContent = outcome.text;
+      el.className = 'big ' + (outcome.cls ? '' : 'fade');
+      return;
+    }
+    renderUpTo(S.step, currentSim, currentFixed);
+    document.getElementById('runstate').textContent = `step ${S.step} / ${S.n}`;
+  }, Math.max(12, Math.min(60, 8000/S.n)));
+}
+
+document.getElementById('btnPlay').addEventListener('click', ()=>{
+  if(S.playing){ stopPlaying(); }
+  else { startPlaying(); }
+});
+
+document.getElementById('btnReset').addEventListener('click', ()=>{
+  const defaults = { x0:10, y0:5, r:0.40, a:0.04, b:0.30, c:0.02, n:200 };
+  Object.keys(defaults).forEach(k=>{
+    document.getElementById(ids[k]).value = defaults[k];
+  });
+  readControls();
+  recompute();
+});
+
+document.getElementById('btnRandom').addEventListener('click', ()=>{
+  const rnd = (lo,hi)=> lo + Math.random()*(hi-lo);
+  document.getElementById('x0').value = rnd(2,30).toFixed(1);
+  document.getElementById('y0').value = rnd(2,30).toFixed(1);
+  document.getElementById('r').value = rnd(0.05,1.0).toFixed(3);
+  document.getElementById('a').value = rnd(0.005,0.15).toFixed(3);
+  document.getElementById('b').value = rnd(0.05,1.0).toFixed(3);
+  document.getElementById('c').value = rnd(0.005,0.15).toFixed(3);
+  readControls();
+  recompute();
+});
+
+// ---------------------------------------------------------------
+// Init
+// ---------------------------------------------------------------
+readControls();
+initPlots();
+recompute();
+</script>
+
+</body>
+</html>
