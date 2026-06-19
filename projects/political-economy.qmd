@@ -30,7 +30,7 @@ That history maps onto the geography in this dataset in a few specific ways:
 
 - **BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)** has the lowest GDP per capita in the country and some of the highest Marcos support, which seems counterintuitive if you expect poverty to predict anti-incumbent or reformist voting. Political analysts generally attribute this to entrenched local political dynasties and clan-based "command vote" delivery in the region — local leaders direct bloc votes to whichever national candidate they've aligned with — rather than to any assessment of the Marcos record specifically.
 
-- The 2022 election itself is often described as a "Marcos restoration," 36 years after EDSA, and was preceded by a long social-media campaign that historians and disinformation researchers have linked to a sustained rebranding of the martial law period as a national "golden age." That's part of why the wealth-vote relationship is weaker than you'd expect: the campaign was substantially about historical memory and identity, not economic platform.
+- **The 2022 election** itself is often described as a "Marcos restoration," 36 years after EDSA, and was preceded by a long social-media campaign that historians and disinformation researchers have linked to a sustained rebranding of the martial law period as a national "golden age." That's part of why the wealth-vote relationship is weaker than you'd expect: the campaign was substantially about historical memory and identity, not economic platform.
 
 # Methodology
 
@@ -50,7 +50,7 @@ Across the 82 provinces in this dataset, $\beta_1$ comes out close to zero — m
 
 Why a flat slope doesn't mean "no relationship." A weak linear relationship between two variables doesn't rule out a relationship mediated by a third variable — here, region. If you group provinces by region instead of fitting one global line, the within-region variation in vote share is much smaller than the between-region variation, which is the statistical version of "this is a regional effect, not an income effect." The regional bar chart and wealth-quartile histograms in this project are really trying to surface that decomposition visually, since a single global OLS line can't.
 
-**Margin calculation.** Each province's "margin" used for win/loss classification is simply ```margin = marcos_pct - robredo_pct```.
+**Margin calculation.** Each province's "margin" used for win/loss classification is simply `margin = marcos_pct - robredo_pct`.
 
 with a province classified as Marcos-majority if `marcos_pct > 50`. This is a simplification — actual two-party-preferred margins would need to account for the ~4-5 points typically going to minor candidates, which is why the histograms group by raw Marcos percentage rather than a true two-candidate margin.
 
@@ -77,7 +77,8 @@ GDP figures are indicative, not official province-level statistics — the Phili
  
 - **Leaflet** for the map
 - **Chart.js** for the scatter, bar, and histogram charts
-- Vanilla JavaScript and CSS — no framework, no build step
+- Vanilla JavaScript and CSS — no framework, no build step.
+
 Originally built as an R/Quarto document (`sf`, `leaflet`, `ggplot2`), then rewritten in plain JS/HTML since all underlying data was static and didn't need a server-side render step. The rewrite cut load time from a multi-minute Quarto render to an instant static page load.
  
 ## Running locally
