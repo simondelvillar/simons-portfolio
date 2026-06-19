@@ -1,0 +1,103 @@
+---
+title: "Philippine Political Economy"
+description: "An interactive single-page visualization exploring the relationship between regional wealth and voting behavior in the 2022 Philippine presidential election."
+toc: true
+categories:
+  - Statistics
+  - Data Visualization 
+  - Web Development 
+---
+
+<iframe src="https://simondelvillar.github.io/ph-political-economy/" width="100%" height="350px" style="border:none;"></iframe>
+
+*![Access the site here](https://simondelvillar.github.io/ph-political-economy/) if the preview is acting weird.*
+
+# Overview
+
+Ferdinand "Bongbong" Marcos Jr. won the 2022 election with roughly 59% of the national vote, but support varied sharply by province. This project layers province-level election results on top of regional GDP data to ask: does wealth predict how a province voted?
+
+The data says: not really, at least not directly. The trend line between GDP per capita and Marcos vote share is nearly flat. Regional identity explains the pattern much better than income — the Visayas broke for Robredo across income levels, while some of the poorest provinces in the country [(BARMM)](https://en.wikipedia.org/wiki/Bangsamoro) delivered the strongest Marcos margins anywhere.
+
+# Historical Context
+
+The Marcos name carries specific weight in Philippine politics. [Ferdinand Marcos Sr.](https://en.wikipedia.org/wiki/Ferdinand_Marcos) ruled the Philippines from 1965 to 1986, declaring martial law in 1972 and ruling by decree for the next 14 years. The regime is associated with widespread human rights abuses, an estimated $5–10 billion in plundered state funds, and a debt crisis that crippled the economy for a generation. He was ousted in 1986 by the EDSA People Power Revolution — a largely peaceful uprising centered on Epifanio de los Santos Avenue in Metro Manila — and the family fled into exile in Hawaii.
+
+That history maps onto the geography in this dataset in a few specific ways:
+
+- **Ilocos Region is the Marcos family's ancestral political base** — Ferdinand Sr. was born in Sarrat, Ilocos Norte, and the family has held provincial office there almost continuously since the 1940s. The near-unanimous Marcos Jr. support in Ilocos Norte (97.1%) and Ilocos Sur (91.3%) reflects six decades of dynastic patronage politics, not income.
+
+- **The Visayas**, where Robredo's strongest support clustered, has a more complicated relationship with the Marcos legacy — the region includes Leyte, where Imelda Marcos was born and where the family also has ties, but it was also the site of significant resistance and suffering during martial law, and Robredo herself is from the broader Bicol/Visayas cultural sphere.
+
+- **BARMM (Bangsamoro Autonomous Region in Muslim Mindanao)** has the lowest GDP per capita in the country and some of the highest Marcos support, which seems counterintuitive if you expect poverty to predict anti-incumbent or reformist voting. Political analysts generally attribute this to entrenched local political dynasties and clan-based "command vote" delivery in the region — local leaders direct bloc votes to whichever national candidate they've aligned with — rather than to any assessment of the Marcos record specifically.
+
+- The 2022 election itself is often described as a "Marcos restoration," 36 years after EDSA, and was preceded by a long social-media campaign that historians and disinformation researchers have linked to a sustained rebranding of the martial law period as a national "golden age." That's part of why the wealth-vote relationship is weaker than you'd expect: the campaign was substantially about historical memory and identity, not economic platform.
+
+# Methodology
+
+**Regression line.** The scatter plot's trend line is an ordinary least squares (OLS) fit of Marcos vote share on GDP per capita: 
+
+$$
+\hat{y} = \beta_0 + \beta_1 x
+$$
+
+where $x$ is the GDP per capita (₱ thousands) and $y^\hat{y}$ is predicted Marcos vote share (%). The slope is computed directly in JavaScript using the standard closed-form estimator:
+
+$$
+\beta_1 = \frac{n \sum x_i y_i - \sum x_i \sum y_i}{n \sum x_i^2 - (\sum x_i)^2}, \quad \beta_0 = \bar{y} - \beta_1 \bar{x}
+$$
+
+Across the 82 provinces in this dataset, $\beta_1$ comes out close to zero — meaning the model predicts almost no change in Marcos vote share for a ₱1,000 increase in GDP per capita. That near-zero slope is the visual story of the scatter plot: the line is nearly flat across the full income range, from BARMM provinces under ₱40k to Metro Manila at ₱312k.
+
+Why a flat slope doesn't mean "no relationship." A weak linear relationship between two variables doesn't rule out a relationship mediated by a third variable — here, region. If you group provinces by region instead of fitting one global line, the within-region variation in vote share is much smaller than the between-region variation, which is the statistical version of "this is a regional effect, not an income effect." The regional bar chart and wealth-quartile histograms in this project are really trying to surface that decomposition visually, since a single global OLS line can't.
+
+**Margin calculation.** Each province's "margin" used for win/loss classification is simply ```margin = marcos_pct - robredo_pct```.
+
+with a province classified as Marcos-majority if `marcos_pct > 50`. This is a simplification — actual two-party-preferred margins would need to account for the ~4-5 points typically going to minor candidates, which is why the histograms group by raw Marcos percentage rather than a true two-candidate margin.
+
+# Features
+
+- Scatter plot — GDP per capita vs. Marcos vote share, by province, with an OLS trend line and a 50% reference line
+
+- Interactive choropleth map — toggle between vote-share and GDP-per-capita views, with per-province popups showing the full breakdown
+Regional bar chart — average Marcos vote share by region, ranked
+
+- Wealth-quartile histograms — distribution of vote share split into four GDP brackets
+
+## Data
+ 
+| Source | Description |
+|---|---|
+| COMELEC 2022 | Province-level vote shares (Marcos / Robredo), 82 provinces |
+| PSA Regional Accounts, 2021 | GDP per capita by region, disaggregated to province level by population weight |
+| [macoymejia/geojsonph](https://github.com/macoymejia/geojsonph) | Province boundary GeoJSON |
+ 
+GDP figures are indicative, not official province-level statistics — the Philippine Statistics Authority publishes at the regional level only, so province values are estimated from regional averages.
+
+# Tech stack
+ 
+- **Leaflet** for the map
+- **Chart.js** for the scatter, bar, and histogram charts
+- Vanilla JavaScript and CSS — no framework, no build step
+Originally built as an R/Quarto document (`sf`, `leaflet`, `ggplot2`), then rewritten in plain JS/HTML since all underlying data was static and didn't need a server-side render step. The rewrite cut load time from a multi-minute Quarto render to an instant static page load.
+ 
+## Running locally
+ 
+This is a single self-contained `index.html` — no install, no build:
+ 
+```bash
+open index.html
+```
+ 
+or serve it with any static server, e.g.:
+ 
+```bash
+python3 -m http.server
+```
+ 
+## Deploying
+ 
+Push to a GitHub repo and enable Pages from the repo settings (Settings → Pages → Source → branch `main`, folder `/`). No CI configuration needed since there's no build step.
+ 
+## License / attribution
+ 
+Election and economic data compiled from public COMELEC and PSA sources; see [Data](#data) above. Province boundaries from the geojsonph project (MIT licensed).

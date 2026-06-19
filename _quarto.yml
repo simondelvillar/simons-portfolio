@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Simon Del Villar"
+  favicon: favicon.png
   navbar:
     left:
       - href: index.qmd
