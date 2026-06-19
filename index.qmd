@@ -26,6 +26,21 @@ I’m a math student, but I’m a 'generalist' at heart. I find joy in the varie
 
 I built this site to bridge the gap between my academic life and the things that genuinely interest me. Grab a coffee (or tea, or water!), browse my latest projects, and if you want to talk shop—or just talk about stuff—let's connect.
 
+::: {.callout-tip appearance="simple"}
+### 📌 Currently Featured
+
+**Wealth, Identity, and the 2022 Philippine Election**
+
+Why did provinces vote the way they did in one of the most consequential elections in modern Philippine history?
+
+This project combines electoral results from the 2022 presidential election with regional economic indicators from the Philippine Statistics Authority to explore whether wealth, development, and geography influenced voting patterns. While some of the wealthiest regions supported Ferdinand Marcos Jr. and others favored Leni Robredo, the data reveals a more nuanced story shaped by regional identity, historical memory, and local political dynamics.
+
+Using maps, visualizations, and statistical analysis, the project investigates a central political economy question:
+
+> *Can economic conditions explain electoral behaviour, or are culture and history equally important?*
+
+[View project →](projects/political-economy.qmd)
+:::
 
 # Beyond Mathematics
 - 📷 Landscape and nature photography (check out [my photography site!](https://simondelvillar.github.io/simondvphotography/))

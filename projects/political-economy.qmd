@@ -10,7 +10,7 @@ categories:
 
 <iframe src="https://simondelvillar.github.io/ph-political-economy/" width="100%" height="350px" style="border:none;"></iframe>
 
-*![Access the site here](https://simondelvillar.github.io/ph-political-economy/) if the preview is acting weird.*
+*[Access the site here](https://simondelvillar.github.io/ph-political-economy/) if the preview is acting weird.*
 
 # Overview
 
