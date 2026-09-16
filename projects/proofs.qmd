@@ -36,6 +36,10 @@ The collection includes direct proofs, proof by contradiction, mathematical indu
 Proof writing taught me that mathematics is not only about finding answers but also about building convincing and rigorous arguments. This project helped develop the analytical and communication skills that form the foundation of higher-level mathematics.
 :::
 
+# Some lecture notes I took
+- [Math 200 Chapter 1](../proofs/lecture-notes/math200/deck1ch1.pdf)
+
+
 # Curated List (so far)
 All of these links direct the user to download a PDF. 
 
