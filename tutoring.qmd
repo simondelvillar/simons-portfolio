@@ -1,5 +1,5 @@
 ---
-title: "Math Tutoring with Simon"
+title: "Tutoring with Simon"
 description: ""
 about:
     template: trestles
@@ -69,6 +69,5 @@ A few simple rules so sessions run smoothly for both of us.
 - ❌ **Late cancellations:** Cancelling with less than 24 hours' notice means the session is forfeited, unless it's a genuine emergency, in which case just message me.
 - ⏰ **Running late:** I'll wait up to 10 minutes. Your session still ends at the scheduled time.
 - 👻 **No-shows:** If you don't show up and don't message me, the session is forfeited.
-- 📦 **4-session packs:** Use them within [3 months] of purchase. Unused sessions after that expire.
 - 🙋 **If I need to cancel:** You'll get a full refund or a free reschedule, your choice.
 - 💻 **What you'll need:** A quiet spot, a stable internet connection, and whatever you're working on (textbook, notes, or problem set).
