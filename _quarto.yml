@@ -13,10 +13,8 @@ website:
         text: Learning  
       - href: experiments.qmd
         text: Experiments
-      - href: favtheorems.qmd
-        text: Favourite Theorems
-      - href: opentabs.qmd
-        text: Word Bubble
+      - href: tutoring.qmd
+        text: Tutoring
 
 format:
   html:

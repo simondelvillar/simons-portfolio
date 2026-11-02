@@ -1,0 +1,74 @@
+---
+title: "Math Tutoring with Simon"
+description: ""
+about:
+    template: trestles
+    links:
+        - icon: linkedin
+          text: LinkedIn
+          url: https://www.linkedin.com/in/simon-del-villar-80b12a27b/?isSelfProfile=true
+        - text: "{{< fa envelope >}} Email"
+          url: mailto:simon.joven.delvillar@gmail.com
+image: img/simonphoto.jpg
+comments: false
+---
+
+# Hi, I'm Simon
+I'm a second year Mathematics major (with a minor in Computer Science) at UBC Okanagan who genuinely enjoys learning, including the parts that make people groan. I tutor BC high school and university level students and my goal is simple: help you go from "I'm stuck" to "oh, that makes sense."
+
+I know what it's like to stare at a problem set at 11pm. My sessions are relaxed, patient, and built around *your* questions, not a rigid script.
+
+[Read my CV!](/docs/cv/Simon_Resume_Tutoring%20(1).pdf){.btn .btn-primary}
+
+::: {.callout-tip appearance="simple"}
+### 📌 Book a free 15-minute chat
+
+No pressure and no commitment. We'll talk about what you're working on and see if we're a good fit.
+
+Currently I am working part-time somewhere else, so my weekends are the only available timeslots right now. These can change!
+
+[Book a time →](https://cal.com/simon-del-villar-1lginz){.btn .btn-primary}
+:::
+
+# What I Help With
+
+## High School
+- 🚀 Physics 11 and 12
+- 📈 Pre-Calculus 11 and 12
+- 📊 Calculus 12 
+- 📝 Homework help and exam prep
+- 🧠 Building confidence, not just getting answers
+
+## University 
+
+### Mathematics
+- MATH 100 and 101 (or other equivalent courses)
+- MATH 221 (or other equivalent courses)
+
+For UBCO students: check the MATH_O course codes [here](https://okanagan.calendar.ubc.ca/course-descriptions/subject/matho). If you don't see your course code listed, send me a message.
+
+### Physics 
+- PHYS 111 and 121 (Introductory Physics I and II)
+
+For UBCO students: check the PHYS_O course codes [here](https://okanagan.calendar.ubc.ca/course-descriptions/subject/physo). Currently, my experience is limited to those two courses. 
+
+
+# How It Works
+1. **Message me.** Tell me what you're working on.
+2. **Free 15-minute chat.** We check that it's a good fit.
+3. **Start sessions.** Weekly, online, evenings and weekends.
+
+# Pricing
+- **Single session** (60 min): $25
+
+# Booking & Cancellation Policy
+A few simple rules so sessions run smoothly for both of us.
+
+- 💳 **Payment:** Paid sessions are paid when you book. The free 15-minute chat is always free.
+- 🔁 **Rescheduling:** Free with at least 24 hours' notice. Use the link in your confirmation email.
+- ❌ **Late cancellations:** Cancelling with less than 24 hours' notice means the session is forfeited, unless it's a genuine emergency, in which case just message me.
+- ⏰ **Running late:** I'll wait up to 10 minutes. Your session still ends at the scheduled time.
+- 👻 **No-shows:** If you don't show up and don't message me, the session is forfeited.
+- 📦 **4-session packs:** Use them within [3 months] of purchase. Unused sessions after that expire.
+- 🙋 **If I need to cancel:** You'll get a full refund or a free reschedule, your choice.
+- 💻 **What you'll need:** A quiet spot, a stable internet connection, and whatever you're working on (textbook, notes, or problem set).
