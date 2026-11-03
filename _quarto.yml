@@ -13,7 +13,7 @@ website:
         text: Learning  
       - href: experiments.qmd
         text: Experiments
-      - href: tutoring.qmd
+      - href: https://simondelvillar.github.io/tutoring/
         text: Tutoring
 
 format:
